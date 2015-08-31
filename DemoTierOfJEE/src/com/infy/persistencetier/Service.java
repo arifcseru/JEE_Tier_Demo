@@ -81,6 +81,14 @@ public class Service {
 		}
 		
 		return "Success update Employee with id "+id;
-	}	
+	}
+
+	public ArrayList<EmployeeTO> allEmployee() {
+		
+		return employeeList;
+		
+	}
+
+	
 
 }

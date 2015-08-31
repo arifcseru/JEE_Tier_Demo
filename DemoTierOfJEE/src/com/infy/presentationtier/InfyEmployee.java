@@ -1,6 +1,8 @@
 package com.infy.presentationtier;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 
 import com.info.businesstier.EmployeeTO;
 import com.info.businesstier.Maneger;
@@ -16,12 +18,28 @@ public class InfyEmployee {
 //		new InfyEmployee().updateEmployee(employeeTO,manager);
 //		new InfyEmployee().removeEmployee(manager);										
 		
+		new InfyEmployee().allEmployee(manager);	
+	}	
+
+	private void allEmployee(Maneger manager) {
+		ArrayList<EmployeeTO> list = manager.allEmployee();
 		
-	}		
+		Iterator iterator = list.iterator();
+		
+		System.out.println("=================All infy Employee==================");
+		
+		while(iterator.hasNext()) {
+			
+			EmployeeTO employee = (EmployeeTO)iterator.next();
+		    System.out.println("Id: "+employee.getEmpId()+"\tName: "+employee.getName()+" \t Salary: "+employee.getSalary()+"\t Date of Birth: "+employee.getDateOfBirth().getTime());
+		
+		}
+		
+	}
 
 	private void addEmployee(EmployeeTO employeeTO, Maneger manager) {
 		
-		employeeTO.setName("employ name");
+		employeeTO.setName("employe");
 		employeeTO.setEmpId("emp21");
 		employeeTO.setSalary(10000.00);
 		
